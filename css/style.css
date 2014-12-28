@@ -156,7 +156,7 @@ ul.feature_grid li.grid1 img, ul.feature_grid li.grid2 img{
 	font-size:1em;
 	font-weight:bold;
 }
-.but1 a {
+.add a {
 	display: inline-block;
 	border: none;
 	color: #FE6847;
@@ -165,7 +165,7 @@ ul.feature_grid li.grid1 img, ul.feature_grid li.grid2 img{
 	transition: all 0.3s ease-out;
 	text-decoration: none;
 }
-.but1 a:hover {
+.add a:hover {
 	color:#555;
 }
 
@@ -210,15 +210,8 @@ ul.feature {
 
 .category_box{
     box-shadow: 0 0px 0 5px #E8E5AD;
-    -webkit-box-shadow: 0 0px 0 5px #E8E5AD;
-    -moz-box-shadow: 0 0px 0 5px #E8E5AD;
-    -o-box-shadow: 0 0px 0 5px #E8E5AD;
     background: #FFF;
     border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-    -moz-border-radius: 0.3em;
-    -o-border-radius: 0.3em;
-    background:#fff;
     border:1px solid #d2cf99;
-    min-height:388px;
+    min-height:398px;
 }
