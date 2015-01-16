@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="UFOApp">
 <head>
     <title>UFO</title>
     <link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="./css/style.css" rel='stylesheet' type='text/css' />
+
+    <script type="application/javascript" src="JS/angular.min.js" ></script>
+    <script type="application/javascript" src="JS/OrderFood.js" ></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<body>
+<body ng-controller="OrderFoodController">
     <header>
         <div class="container">
             <div class="logo"><img src="./images/logo.png" alt=""></div>
@@ -30,16 +34,7 @@
                     <div class="category_box">
                         <h3 class="cate_head">餐 厅 选 择</h3>
                         <ul class="category">
-                                <li><a href="#">肯德基</a></li>
-                                <li><a href="#">麦当劳</a></li>
-                                <li><a href="#">必胜客</a></li>
-                                <li><a href="#">星巴克</a></li>
-                                <li><a href="#">Costa</a></li>
-                                <li><a href="#">东方饺子馆</a></li>
-                                <li><a href="#">永和大王</a></li>
-                                <li><a href="#">吉野家</a></li>
-                                <li><a href="#">和合谷</a></li>
-                                <li><a href="#">龙香记米粉</a></li>
+                                <li ng-repeat="hotel in restaurants"><a href="#">{{hotel}}</a></li>
                         </ul>
                     </div>
                     <ul class="payment">
@@ -53,24 +48,11 @@
                 <div class="col-md-9">
                     <h3><i class="arrow"> </i><span>超值套餐</span></h3>
                     <ul class="feature_grid">
-                        <li class="grid1"><img src="./images/set1.jpg" class="img-responsive" alt=""/>
-                            <p>堡堡双人餐</p>
+
+                        <li ng-repeat="s in setMenu" class="grid1"><img ng-src="{{s.image}}" class="img-responsive" alt=""/>
+                            <p>{{s.name}}</p>
                             <div class="price">价格:
-                                <span class="actual">￥70.00</span>
-                                <span class="add"><a href="#">Add to List</a></span>
-                            </div>
-                        </li>
-                        <li class="grid1"><img src="./images/set2.jpg" class="img-responsive" alt=""/>
-                            <p>特惠经典全家餐</p>
-                            <div class="price">价格:
-                                <span class="actual">￥92.00</span>
-                                <span class="add"><a href="#">Add to List</a></span>
-                            </div>
-                        </li>
-                        <li class="grid2"><img src="./images/set3.jpg" class="img-responsive" alt=""/>
-                            <p>饭堡双人餐</p>
-                            <div class="price">价格:
-                                <span class="actual">￥68.00</span>
+                                <span class="actual">￥{{s.price}}</span>
                                 <span class="add"><a href="#">Add to List</a></span>
                             </div>
                         </li>
@@ -78,102 +60,20 @@
                     </ul>
                     <h3><i class="arrow"> </i><span>缤纷单品</span></h3>
                     <ul class="feature">
-                        <li class="col-md-3">
+
+                        <li ng-repeat="menu in singleMenu" class="col-md-3">
                             <div class="product">
-                                <img src="./images/single1.jpg" class="img-responsive" alt=""/>
+                                <img ng-src="{{menu.image}}" class="img-responsive" alt=""/>
                                 <div class="content_box-grid">
-                                    <p class="m_1">老北京鸡肉卷</p>
+                                    <p class="m_1">{{menu.name}}</p>
                                     <div class="price">价格:
-                                        <span class="actual">￥14.00</span>
+                                        <span class="actual">￥{{menu.price}}</span>
                                         <span class="add"><a href="#">Add to List</a></span>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single2.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">墨西哥鸡肉卷</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥12.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single3.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">香烤照烧鸡腿饭</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥21.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single4.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">新奥尔良烤鸡腿饭</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥20.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single5.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">香辣鸡柳饭</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥20.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single6.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">新奥尔良烤鸡翅</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥9.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single7.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">劲爆鸡米花</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥12.00</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3">
-                            <div class="product">
-                                <img src="./images/single8.jpg" class="img-responsive" alt=""/>
-                                <div class="content_box-grid">
-                                    <p class="m_1">新奥尔良烤鸡腿堡</p>
-                                    <div class="price">价格:
-                                        <span class="actual">￥16.50</span>
-                                        <span class="add"><a href="#">Add to List</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>

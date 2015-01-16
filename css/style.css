@@ -137,7 +137,7 @@ ul.feature_grid li{
 	float: left;
 }
 ul.feature_grid li.grid1{
-	margin-right:1em;
+	margin-right:0.1em;
 }
 ul.feature_grid li.grid1 p, ul.feature_grid li.grid2 p{
 	color:#555;
