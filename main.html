@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="banner"><img src="./images/banner.jpg" class="img-responsive" alt=""/></div>
+    <div class="row content">
+        <div class="col-md-3">
+            <div class="category_box">
+                <h3 class="cate_head">餐 厅 选 择</h3>
+                <ul class="category">
+                    <li ng-repeat="hotel in restaurants"><a href="#">{{hotel}}</a></li>
+                </ul>
+            </div>
+            <ul class="payment">
+                <h3><i class="arrow"> </i>点餐完毕</h3>
+                <li><img src="./images/alipay.jpg" class="img-responsive" alt=""/><a href="#/summary">确定</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <h3><i class="arrow"> </i><span>超值套餐</span></h3>
+            <ul class="feature_grid">
+
+                <li ng-repeat="s in setMenu" class="grid1"><img ng-src="{{s.image}}" class="img-responsive" alt=""/>
+                    <p>{{s.name}}</p>
+                    <div class="price">价格:
+                        <span class="actual">￥{{s.price}}</span>
+                        <span class="add"><a ng-click="addToCart(s)">Add to List</a></span>
+                    </div>
+                </li>
+                <div class="clearfix"></div>
+            </ul>
+            <h3><i class="arrow"> </i><span>缤纷单品</span></h3>
+            <ul class="feature">
+
+                <li ng-repeat="menu in singleMenu" class="col-md-3">
+                    <div class="product">
+                        <img ng-src="{{menu.image}}" class="img-responsive" alt=""/>
+                        <div class="content_box-grid">
+                            <p class="m_1">{{menu.name}}</p>
+                            <div class="price">价格:
+                                <span class="actual">￥{{menu.price}}</span>
+                                <span class="add"><a ng-click="addToCart(menu)">Add to List</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

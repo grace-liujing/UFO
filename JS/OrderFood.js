@@ -1,6 +1,18 @@
-var ufo = angular.module('UFOApp',[]);
+var ufo = angular.module('UFOApp',['ngRoute']);
 
-ufo.controller('OrderFoodController', ['$scope', function($scope) {
+ufo.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl : 'main.html',
+            controller  : 'OrderFoodController'
+        })
+        .when('/summary',{
+            templateUrl : 'summary.html',
+            controller : 'SummaryController'
+        });
+}]);
+
+ufo.controller('OrderFoodController', ['$scope', '$rootScope', function($scope, $rootScope) {
 
     $scope.restaurants = [
         "肯德基",
@@ -74,5 +86,18 @@ ufo.controller('OrderFoodController', ['$scope', function($scope) {
         image: "../images/set3.jpg"
     }];
 
+
+    $rootScope.cart = [];
+    $scope.addToCart = function(menu){
+        $rootScope.cart.push(menu);
+    };
+
 }]);
+
+ufo.controller('SummaryController', ['$scope', '$rootScope', function($scope, $rootScope){
+}]);
+
+
+
+
 
