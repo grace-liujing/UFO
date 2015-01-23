@@ -16,7 +16,7 @@ describe("when order food",function(){
     });
 
     it('should be able to add item to shopping cart', function(){
-        //expect(scope.cart.length, 0);
+        expect(scope.cart.length, 0);
 
         var item = {
             name: "饭堡双人餐",
