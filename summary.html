@@ -1,6 +1,6 @@
 <div>
     <ul>
-        <li ng-repeat="item in cart">
+        <li ng-repeat="item in cart track by $index">
             <h4>{{item.name}} -  {{item.price}}</h4>
         </li>
     </ul>
