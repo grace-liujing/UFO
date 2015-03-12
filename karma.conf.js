@@ -32,9 +32,16 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'html'],
 
-
+    htmlReporter: {
+      outputDir: 'karma_html',
+      templatePath: null,
+      focusOnFailures: true,
+      namedFiles: false,
+      pageTitle: null,
+      urlFriendlyName: false
+    },
     // web server port
     port: 9876,
 
@@ -52,11 +59,14 @@ module.exports = function(config) {
     autoWatch: true,
 
 
-    browsers: ['ChromeNoSandbox'],
+    browsers: ['Firefox'],
 
-    customLaunchers: {
-      ChromeNoSandbox: { base: 'Chrome', flags: ['--no-sandbox'] }
-    },
+    plugins: [
+      'karma-jasmine',
+      'karma-firefox-launcher',
+      'karma-html-reporter',
+      'karma-script-launcher'
+    ],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
